@@ -72,5 +72,5 @@ Developers and students are welcome to fork, learn, and improve upon the project
 ✨ Freelancer's House is more than just a demo — it’s a starting point for innovation.
 
 ------
-I can make any update according to your needs and you can buy it via https://aymanelbatata.gumroad.com/l/ECommerce
+I can make any update according to your needs and you can buy it via https://aymanelbatata.gumroad.com/l/FreelancerHouse
 Or via the following link just if you need a commercial invoice with 14% taxes and other fees: https://checkouts.kashier.io/en/prepaymenpages?ppLink=PP-927176201,live 
