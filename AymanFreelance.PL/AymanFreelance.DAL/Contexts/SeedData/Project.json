@@ -1,0 +1,39 @@
+[
+  {
+    "Name": "Project1",
+    "Image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashgear.com%2Fimg%2Fgallery%2F5-unusual-raspberry-pi-projects-found-in-the-wild%2Fl-intro-1683510614.jpg&f=1&nofb=1&ipt=dbc6e48ff53b9bda609b3b62450cac162f88e5d0393caa3559322f1b6ff500a3",
+    "Description": "This is a sample product description 1.",
+    "RequiredDaysOfDelivery": 3,
+    "TotalCost": 500,
+    "PaymentInAdvance": 100,
+    "HashCode": "1011201"
+  },
+
+  {
+    "Name": "Project2",
+    "Image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foff-planproperties.ae%2Fwp-content%2Fuploads%2F2024%2F02%2FNew-Projects-Dubai.jpg&f=1&nofb=1&ipt=88c784f2bab65efeaa94cc87b1c332e667089a995c513ae1353241f699fceb5e",
+    "Description": "This is a sample product description 2.",
+    "RequiredDaysOfDelivery": 4,
+    "TotalCost": 600,
+    "PaymentInAdvance": 200,
+    "HashCode": "1011202"
+  },
+  {
+    "Name": "Project3",
+    "Image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcivvystreetmagazine.co.uk%2Fwp-content%2Fuploads%2F2022%2F09%2FAdobeStock_281970265WEB-1140x641.jpg&f=1&nofb=1&ipt=3dd4277ac7df479ab80daf21812e3e102e3bbdb8bbde96a56953d251a6f4b005",
+    "Description": "This is a sample product description 3.",
+    "RequiredDaysOfDelivery": 5,
+    "TotalCost": 700,
+    "PaymentInAdvance": 300,
+    "HashCode": "1011203"
+  },
+  {
+    "Name": "Project4",
+    "Image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fclimbistria.com%2Fwp-content%2Fuploads%2F2023%2F01%2FProject.jpg&f=1&nofb=1&ipt=10e71f25cf759e0061ab7c3b9a59be0781735379babcb0821297c667c09c779f",
+    "Description": "This is a sample product description 4.",
+    "RequiredDaysOfDelivery": 6,
+    "TotalCost": 800,
+    "PaymentInAdvance": 400,
+    "HashCode": "1011204"
+  }
+]
