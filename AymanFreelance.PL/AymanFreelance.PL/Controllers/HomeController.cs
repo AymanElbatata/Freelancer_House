@@ -111,16 +111,29 @@ namespace AymanFreelance.PL.Controllers
             return View(data);
         }
 
-        public IActionResult Projects()
+        public IActionResult Projects(string? CurrentUser)
         {
             var data = new Search_VM();
 
-            var projects = unitOfWork.ProjectTBLRepository.GetAllCustomized(
-                 filter: a => a.IsDeleted == false && a.IsDelivered == false, includes: new Expression<Func<ProjectTBL, object>>[]
+            if (string.IsNullOrEmpty(CurrentUser))
             {
-                                                             p => p.ProjectOwnerTBL
-            }).Take(9);
-            data.ProjectTBL_VM = Mapper.Map<List<ProjectTBL_VM>>(projects.OrderByDescending(a => a.CreationDate));
+                ;
+                var projects = unitOfWork.ProjectTBLRepository.GetAllCustomized(
+                       filter: a => a.IsDeleted == false && a.IsDelivered == false && a.ProjectOwnerTBLId == User.FindFirstValue(ClaimTypes.NameIdentifier).ToString(), includes: new Expression<Func<ProjectTBL, object>>[]
+                       {
+                                  p => p.ProjectOwnerTBL
+                       });
+                data.ProjectTBL_VM = Mapper.Map<List<ProjectTBL_VM>>(projects.OrderByDescending(a => a.CreationDate));
+            }
+            else
+            {
+                var projects = unitOfWork.ProjectTBLRepository.GetAllCustomized(
+                       filter: a => a.IsDeleted == false && a.IsDelivered == false, includes: new Expression<Func<ProjectTBL, object>>[]
+                       {
+                                  p => p.ProjectOwnerTBL
+                       });
+                data.ProjectTBL_VM = Mapper.Map<List<ProjectTBL_VM>>(projects.OrderByDescending(a => a.CreationDate));
+            }
 
             return View(data);
         }
