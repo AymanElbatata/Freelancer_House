@@ -40,7 +40,6 @@
                             <p class="card-text">Country: @user.CountryTBL.Name</p>
                             <p class="card-text">Phone: @user.Phone</p>
                             <p class="card-text">Address: @user.Address</p>
-                            <p class="card-text">Description: @user.Description</p>
                             <div class="product-rating">
                                 @{
                                     var ratingcollection = Model.Freelancers_VM.Where(a=>a.ID == user.ID).FirstOrDefault()
