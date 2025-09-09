@@ -211,7 +211,8 @@ namespace AymanFreelance.PL.Controllers
                     CountryTBLId = model.CountryTBLId,
                     GenderTBLId = model.GenderTBLId,
                     ActivationCode = unitOfWork.MySPECIALGUID.GetUniqueKey(12),
-                    UserTypeTBLId = model.UserTypeTBLId
+                    UserTypeTBLId = model.UserTypeTBLId,
+                    PersonalImage = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fv2%2Fresize%3Afit%3A2400%2F1*6_oHYdP-4Zvszbey6ZBw0w.jpeg&f=1&nofb=1&ipt=c31fc1beaa80865c00250659fa35e753f48e42ead887031d3eeb3663836be094"
                 };
 
                 // Create the user

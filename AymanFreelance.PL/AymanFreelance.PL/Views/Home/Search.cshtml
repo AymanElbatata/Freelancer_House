@@ -38,7 +38,6 @@
                             <p class="card-text">Email: @user.Email</p>
                             <p class="card-text">Country: @user.CountryTBL.Name</p>
                             <p class="card-text">Phone: @user.Phone</p>
-                            <p class="card-text">Address: @user.Address</p>
                             <a asp-controller="Home" asp-action="WhoisFreelancerClient" asp-route-UserName="@user.UserName" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
@@ -63,7 +62,6 @@
                             <p class="card-text">Email: @user.Email</p>
                             <p class="card-text">Country: @user.CountryTBL.Name</p>
                             <p class="card-text">Phone: @user.Phone</p>
-                            <p class="card-text">Address: @user.Address</p>
                             <div class="product-rating">
                                 @{
                                     var ratingcollection = Model.Freelancers_VM.Where(a => a.ID == user.ID).FirstOrDefault()
