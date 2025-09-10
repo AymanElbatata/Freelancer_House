@@ -42,7 +42,7 @@
                             <h5 class="card-title">Name: @project.Name</h5>
                             <p class="card-text">Code: @project.HashCode</p>
                             <p class="card-text">Client: @project.ProjectOwnerTBL.UserName</p>
-                            <p class="card-text">Freelancer: @(project.ProjectFreelancerTBL?.UserName ?? "Not specific")</p>
+                            <p class="card-text">Freelancer: @(project.ProjectFreelancerTBL?.UserName ?? "Not assigned")</p>
                             <a asp-controller="Home" asp-action="WhoisProject" asp-route-ProjectId="@project.ID" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
