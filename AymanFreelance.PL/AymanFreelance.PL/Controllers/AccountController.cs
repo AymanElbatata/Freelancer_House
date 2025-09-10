@@ -108,9 +108,13 @@ namespace AymanFreelance.PL.Controllers
                         if (isAdmin)
                         return RedirectToAction("Index", "Admin");
 
-                        var isSupplier = await unitOfWork.UserManager.IsInRoleAsync(user, "Supplier");
-                        if (isAdmin)
-                            return RedirectToAction("Index", "Supplier");
+                        var isFreelancer = await unitOfWork.UserManager.IsInRoleAsync(user, "Freelancer");
+                        if (isFreelancer)
+                            return RedirectToAction("Index", "Freelancer");
+
+                        var isSponsorClient = await unitOfWork.UserManager.IsInRoleAsync(user, "SponsorClient");
+                        if (isSponsorClient)
+                            return RedirectToAction("Index", "SponsorClient");
                     }
                     if (Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl); // redirect to the original page

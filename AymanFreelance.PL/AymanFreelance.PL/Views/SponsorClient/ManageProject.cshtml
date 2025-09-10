@@ -178,6 +178,14 @@
             box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
         }
 
+
+
+    .hire-btn {
+        margin-top: 10px;
+        border-radius: 8px;
+        padding: 6px 14px;
+    }
+
     .hired-label {
         margin-top: 10px;
         padding: 6px 14px;
@@ -232,7 +240,14 @@
                                      src="@(string.IsNullOrEmpty(item.AppUserWhoWrote.PersonalImage) ? "/images/no-image.png" : item.AppUserWhoWrote.PersonalImage)"
                                      alt="@item.AppUserWhoWrote.UserName" />
                                 <div>
-                                    <p class="freelancer-name"> <a class="text-black text-decoration-none" asp-controller="Home" asp-action="WhoisFreelancerClient" asp-route-UserName="@item.AppUserWhoWrote.UserName">@item.AppUserWhoWrote.UserName</a></p>
+                                    <p class="freelancer-name">
+                                        <a class="text-black text-decoration-none"
+                                           asp-controller="Home"
+                                           asp-action="WhoisFreelancerClient"
+                                           asp-route-UserName="@item.AppUserWhoWrote.UserName">
+                                            @item.AppUserWhoWrote.UserName
+                                        </a>
+                                    </p>
                                     <p class="freelancer-sub">@((item.DaysOfDelivery ?? 0)) days • $@((item.Cost ?? 0))</p>
                                     <p class="freelancer-sub">@(item.CreationDate?.ToString("dd MMM yyyy") ?? "Not specific")</p>
                                 </div>
@@ -242,57 +257,25 @@
                                 <p><strong>In advance:</strong> $@(item.PaymentInAdvance ?? 0)</p>
                                 <p><strong>Comment:</strong> @(item.Message ?? "Not specific")</p>
                             </div>
-                            @if (Model.ProjectTBL_VM.ProjectFreelancerTBLId != null && item.AppUserWhoWroteId == Model.ProjectTBL_VM.ProjectFreelancerTBLId)
+
+                            <!-- Hire Button or Label -->
+                            @if (Model.ProjectTBL_VM.ProjectFreelancerTBLId!= null && item.AppUserWhoWroteId == Model.ProjectTBL_VM.ProjectFreelancerTBLId)
                             {
                                 <span class="hired-label">✅ This freelancer is hired for this task</span>
+                            }
+                            else
+                            {
+                                <form asp-controller="SponsorClient" asp-action="HireFreelancerToProject" method="post">
+                                    <input type="hidden" name="ApplicationId" value="@item.ID" />
+                                    <button type="submit" class="btn btn-primary hire-btn">Hire</button>
+                                </form>
                             }
                         </div>
                     }
                 }
                 else
                 {
-                    <p> No applications yet. Be the first to apply!</p>
-                }
-
-                @if (UnitOfWork.SignInManager.IsSignedIn(User))
-                {
-                    if (User.IsInRole("Freelancer") && Model.HasAppliedBefore == false && Model.ProjectTBL_VM.ProjectFreelancerTBLId == null)
-                    {
-                        <!-- New Application Form -->
-                        <div class="new-application">
-                            <h3>➕ Submit Your Application</h3>
-                            <form asp-controller="Home" asp-action="FreelancerSubmitNewOfferforProject" method="post">
-                                <input type="hidden" name="ProjectId" value="@Model.ProjectTBL_VM.ID" />
-
-                                <div class="form-group">
-                                    <label for="Cost">Cost ($)</label>
-                                    <input type="number" class="form-control" name="Cost" required />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="PaymentInAdvance">Advance Payment ($)</label>
-                                    <input type="number" class="form-control" name="PaymentInAdvance" required />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="DaysOfDelivery">Delivery Time (days)</label>
-                                    <input type="number" class="form-control" name="DaysOfDelivery" required />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="Message">Message</label>
-                                    <textarea class="form-control" name="Message" rows="3" required></textarea>
-                                </div>
-
-                                <button type="submit" class="btn-primary">Submit Application</button>
-                            </form>
-                        </div>
-                    }
-                                   
-                }
-                else
-                {
-                    <p> <a class="text-black text-decoration-none" asp-controller="Account" asp-action="Login">Do you want to write, Login First as freelancer!</a></p>
+                    <p>No applications yet!</p>
                 }
             </div>
         </div>

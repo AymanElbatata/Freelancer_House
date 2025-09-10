@@ -134,8 +134,14 @@
                             <p><strong>Email:</strong> @Model.UserTBL_VM.Email</p>
                             <p><strong>Country:</strong> @Model.UserTBL_VM.CountryTBL.Name</p>
                             <p><strong>Phone:</strong> @Model.UserTBL_VM.Phone</p>
-                            <p><strong>Address:</strong> @Model.UserTBL_VM.Address</p>
-                            <p><strong>Description:</strong> @Model.UserTBL_VM.Description</p>
+                            @if (Model.UserTBL_VM.Address != null)
+                            {
+                                <p><strong>Address:</strong> @Model.UserTBL_VM.Address</p>
+                            }
+                            @if (Model.UserTBL_VM.Description != null)
+                            {
+                                <p><strong>Description:</strong> @Model.UserTBL_VM.Description</p>
+                            }
                         </div>
 
                         @if (Model.UserTBL_VM.Role == "Freelancer")
