@@ -265,7 +265,7 @@
                             }
                             else
                             {
-                                <form asp-controller="SponsorClient" asp-action="HireFreelancerToProject" method="post">
+                                <form asp-controller="SponsorClient" asp-action="HireFreelancerToProject" method="post" onsubmit="return confirm('Are you sure you want to hire this freelancer because data will be changed to his offer?');">
                                     <input type="hidden" name="ApplicationId" value="@item.ID" />
                                     <button type="submit" class="btn btn-primary hire-btn">Hire</button>
                                 </form>
