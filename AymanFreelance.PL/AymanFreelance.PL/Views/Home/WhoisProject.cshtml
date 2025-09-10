@@ -211,7 +211,7 @@
                 <div><strong>Total Cost:</strong> $@Model.ProjectTBL_VM.TotalCost</div>
                 <div><strong>Advance Payment:</strong> $@Model.ProjectTBL_VM.PaymentInAdvance</div>
                 <div><strong>Creation Date:</strong> @(Model.ProjectTBL_VM.CreationDate?.ToString("dd MMM yyyy") ?? "Not specific")</div>
-                <div><strong>Freelancer:</strong> @(Model.ProjectTBL_VM.ProjectFreelancerTBL?.UserName ?? "Not specific")</div>
+                <div><strong>Freelancer:</strong>  @(Model.ProjectTBL_VM.ProjectFreelancerTBL?.UserName ?? "Not assigned")</div>
                 <div><strong>Start Work:</strong> @(Model.ProjectTBL_VM.DateOfStartWork?.ToString("dd MMM yyyy") ?? "Not specific")</div>
                 <div><strong>Delivery Date:</strong> @(Model.ProjectTBL_VM.DateOfDelivery?.ToString("dd MMM yyyy") ?? "Not specific")</div>
                 <div><strong>Advance Paid:</strong> @(Model.ProjectTBL_VM.IsPaymentInAdvancePaid ? "Yes ✅" : "Not yet ❌")</div>

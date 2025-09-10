@@ -58,7 +58,7 @@
                             <p class="card-text"><strong>Freelancer:</strong> @(project.ProjectFreelancerTBL?.UserName ?? "Not assigned")</p>
                             <div class="mt-auto">
                                 <a asp-controller="SponsorClient" asp-action="UpdateProject" asp-route-ProjectId="@project.ID" class="btn btn-primary w-100">Update</a>
-                                <a asp-controller="SponsorClient" asp-action="ManageProject" asp-route-ProjectId="@project.ID" class="mt-3 mb-3 btn btn-warning w-100">Manage</a>
+                                <a asp-controller="SponsorClient" asp-action="ManageProject" asp-route-ProjectId="@project.ID" class="mt-3 mb-2 btn btn-warning w-100">Manage</a>
                             </div>
                         </div>
                     </div>
