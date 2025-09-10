@@ -162,8 +162,9 @@ namespace AymanFreelance.PL.Controllers
 
             // Send to Freelancer Start
             var appSettings = configuration.GetSection("AppSettingsEmails").Get<Dictionary<string, string>>();
-            string AymanFreelanceUrl = configuration["AymanFreelance.Pl.Url"];
-            string AymanFreelanceUrl2 = appSettings["AymanFreelance.Pl.Url"];
+
+            string AymanFreelanceUrl = appSettings["AymanFreelance.Pl.Url"];
+            string AymanFreelanceUrl2 = configuration["AymanFreelance.Pl.Url"];
             if (string.IsNullOrEmpty(AymanFreelanceUrl) && string.IsNullOrEmpty(AymanFreelanceUrl2))
                 AymanFreelanceUrl = "https://FreelancerHouse.runasp.net/";
 
@@ -176,7 +177,7 @@ namespace AymanFreelance.PL.Controllers
             var Freelancer = await unitOfWork.UserManager.FindByIdAsync(project.ProjectFreelancerTBLId);
             var Client = await unitOfWork.UserManager.FindByIdAsync(project.ProjectOwnerTBLId);
             //var ActivateUserLink = configuration["AymanFreelance.Pl.Url"] + "Home/WhoisProject?ProjectId=" + project.ID;
-            var ActivateUserLink = AymanFreelanceUrl + "Home/WhoisProject?ProjectId=" + project.ID;
+            string ActivateUserLink = AymanFreelanceUrl + "Home/WhoisProject?ProjectId=" + project.ID;
 
             var Email = new EmailTBL_VM();
             Email.To = Freelancer.Email;
