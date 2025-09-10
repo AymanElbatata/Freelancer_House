@@ -46,6 +46,7 @@ namespace AymanFreelance.PL.Controllers
                 var newProject = Mapper.Map<ProjectTBL>(model);
                 newProject.Image = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fprojectaccelerator.co.uk%2Fwp-content%2Fuploads%2F2016%2F08%2FProject-Management.jpg&f=1&nofb=1&ipt=f65cd68c95661a34991df98318eba44507444372592ad8a02b862371fbccf9cb";
                 newProject.ProjectOwnerTBLId = User.FindFirstValue(ClaimTypes.NameIdentifier).ToString();
+                newProject.HashCode = unitOfWork.MySPECIALGUID.GetUniqueKey(10) + DateTime.Now.Year;
                 unitOfWork.ProjectTBLRepository.Add(newProject);
                 return RedirectToAction("Projects", "SponsorClient");
             }
