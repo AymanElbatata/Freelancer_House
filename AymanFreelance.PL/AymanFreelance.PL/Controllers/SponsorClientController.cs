@@ -102,7 +102,8 @@ namespace AymanFreelance.PL.Controllers
             var projects = unitOfWork.ProjectTBLRepository.GetAllCustomized(
                        filter: a => a.IsDeleted == false && a.IsDelivered == false && a.ProjectOwnerTBLId == User.FindFirstValue(ClaimTypes.NameIdentifier).ToString(), includes: new Expression<Func<ProjectTBL, object>>[]
                        {
-                                  p => p.ProjectOwnerTBL
+                                  p => p.ProjectOwnerTBL,
+                                  p => p.ProjectFreelancerTBL
                        });
             data.ProjectTBL_VM = Mapper.Map<List<ProjectTBL_VM>>(projects.OrderByDescending(a => a.CreationDate));
 
